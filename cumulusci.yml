@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.74.0'
+project:
+    name: Test-with-GitHub-Actions
+    package:
+        name: Test-with-GitHub-Actions
+        api_version: '55.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/Test-with-GitHub-Actions/tests
+            options:
+                outputdir: robot/Test-with-GitHub-Actions/results
+
+    robot_testdoc:
+        options:
+            path: robot/Test-with-GitHub-Actions/tests
+            output: robot/Test-with-GitHub-Actions/doc/Test-with-GitHub-Actions_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
